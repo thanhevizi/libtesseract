@@ -2,15 +2,17 @@
 
 import PackageDescription
 
+import PackageDescription
+
 let package = Package(
-  name: "libtesseract",
+  name: "AwesomePackage",
   platforms: [
     .iOS(.v11),
   ],
   products: [
     .library(
-      name: "libtesseract",
-      targets: ["libtesseract"]
+      name: "AwesomePackage",
+      targets: ["AwesomePackage"]
     ),
   ],
   dependencies: [
@@ -18,7 +20,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "libtesseract",
+      name: "AwesomePackage",
       dependencies: ["libtesseract"],
       linkerSettings: [.linkedLibrary("z"), .linkedLibrary("c++")]
     ),
