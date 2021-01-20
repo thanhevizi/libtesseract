@@ -1,12 +1,11 @@
 // swift-tools-version:5.3
-
-import PackageDescription
-
 import PackageDescription
 
 let package = Package(
   name: "AwesomePackage",
   platforms: [
+    // These are the minimum versions libtesseract supports
+    .macOS(.v10_13),
     .iOS(.v11),
   ],
   products: [
