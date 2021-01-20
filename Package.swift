@@ -4,19 +4,23 @@ import PackageDescription
 
 let package = Package(
   name: "libtesseract",
+  platforms: [
+    .iOS(.v11),
+  ],
   products: [
     .library(
       name: "libtesseract",
       targets: ["libtesseract"]
     ),
   ],
-  dependencies: [],
+  dependencies: [
+    .package(url: "https://github.com/SwiftyTesseract/libtesseract.git", from: "0.1.0")
+  ],
   targets: [
-    .binaryTarget(
+    .target(
       name: "libtesseract",
-      url: "https://dl.bintray.com/steven0351/tesseract/libtesseract-0.1.0.xcframework.zip",
-      checksum: "f732c6e1bbdbbdec87201841a4654d4d22e055e960ec618d48f5ec8141331af7"
-    )
+      dependencies: ["libtesseract"],
+      linkerSettings: [.linkedLibrary("z"), .linkedLibrary("c++")]
+    ),
   ]
 )
-
